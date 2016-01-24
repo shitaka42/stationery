@@ -7,24 +7,32 @@
             <div class="container">
               <header class="header header--section">
                 <h2 class="text-middle">
-                  <i class="icon-movie color-gray-light"></i>新着
+                  <i class="icon-stationery color-gray-light"></i>新着
                 </h2>
               </header>
+
+        <div class="ranking">
+        <p>1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位1位</p>
+        </div>
+        <div class="new-item">
+
+
               <ul class="thumbnails thumbnail--movies row grid4 js-lazy-load-images js-my-check-stats" id="list-module">
                 <% @products.each do |product| %>
                 <li class="col">
-                  <a href="/products/<%= product.id %>"><div class="thumbnail__figure" style="background-image:url(<%= product.image_url %>)"></div></a>
+                  <a href="/products/<%= product.id %>"><div class="thumbnail__figure" style="background-image:url(<%= product.image_url %>); height: 150px; "></div>
                   <div class="thumbnail__caption">
                     <h3 class="text-xsmall text-overflow" title="<%= product.title %>">
                     <%= product.title %>
                     </h3>
+                  </a>
                     <p class="text-small">
-                 ß
                     </p>
                   </div>
                 </li>
                 <% end %>
               </ul>
+            </div>
             </div>
           </article>
         </div>
