@@ -1,3 +1,6 @@
 class ProductsController < ApplicationController
-  @products = Product.all.order('id ASC').limit(20)
+  
+  def index
+    @products = Product.all.order('id ASC').limit(20)
+  end
 end

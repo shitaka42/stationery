@@ -16,12 +16,22 @@ class Scraping
   end
 
   def self.products_urls(category)
-    links = []
     agent = Mechanize.new
-    cate_page = agent.get(category)
-    elements = cate_page.search('p.figure a')
-    elements.each do |ele|
-      links << ele.get_attribute('href')
+    links = []
+
+    next_url = category
+
+num = 0
+    while num < 3 do
+      cate_page = agent.get(next_url)
+      elements = cate_page.search('p.figure a')
+      elements.each do |ele|
+        links << ele.get_attribute('href')
+      end
+
+      next_url = cate_page.at('.pagination li.next a').get_attribute('href') if cate_page.at('.pagination li.next a')
+      num += 1
+      # break unless next_url
     end
 
     links.each do |link|
@@ -34,12 +44,12 @@ class Scraping
     page = agent.get(link)
     title = page.at('h1.name').inner_text
     detail = page.at('#description.section').inner_text
-    price = page.at('p.price span').inner_text
+    price = page.at('p.price span').inner_text if page.at('p.price span')
     image_url = page.at('p.figure img')[:src]
-    maker = page.at('.outer .breadcrumb span[itemprop = "child"] span[itemprop = "title"]')
-    category = page.at('.breadcrumb span[itemprop = "child"] span a span' )
+    maker = page.at('.outer .breadcrumb span[itemprop = "child"] span[itemprop = "title"]').inner_text if page.at('.outer .breadcrumb span[itemprop = "child"] span[itemprop = "title"]')
+    category = page.at('.breadcrumb span[itemprop = "child"] span a span' ).inner_text if page.at('.breadcrumb span[itemprop = "child"] span a span' )
 
-    product = Product.new(title: title,  detail: detail, price: price, image_url: image_url, maker: maker, category: category)
+    product = Product.where(title: title,  detail: detail, price: price, image_url: image_url, maker: maker, category: category).first_or_initialize
     product.save
   end
 end
