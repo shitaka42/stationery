@@ -35,9 +35,9 @@
         <ul>
           <li class="entry_button">
             <a href="products/search">検索</a></li>
-            <li class="entry_button" style="float: right">
-              <%= link_to 'サインアウト', "/users/sign_out", method: :delete %>
-            </li>
+          <li class="entry_button">
+                <%= link_to 'サインアウト', "/users/sign_out", method: :delete %>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,9 +46,37 @@
 
       <div class="sidebar"></div>
 
-      <div class="contents">
 
+      <div class="contents">
         <%= yield %>
+        <div class="ranking">
+          <h4 class="text-small hr-bottom--thin no-space-bottom">
+              <i class="icon-crown color-gray-light"></i>投稿ランキング
+            </h4>
+            <ul class="listview listview--condensed text-small">
+            <% @ranking.each.with_index(1) do |product,i| %>
+              <li data-cinema-id="346394">
+                <a href="/products/<%= product.id %>">
+                  <div class="box">
+                    <div class="box__cell w40 align-center">
+                      <p class="label bgcolor-gray-lighter align-center">
+                        <%= i %>
+                      </p>
+                    </div>
+                    <div class="box__cell pl1em">
+                      <p class="text-xsmall no-space">
+                        <%= product.title %>
+                      </p>
+                      <img src="<%= product.image_url %>" alt="" style=" height:150px;">
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+        </div>
+
+
     </div>
 
     </div>

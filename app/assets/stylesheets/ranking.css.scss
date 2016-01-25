@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+}
+
+.header
+{
+  height: 65px;
+  background-color: #DAFFE7;
+}
+
+.main
+{
+  height: 100%;
+  background-color: #800000;
+}
+
+.footer
+{
+  clear: both;
+  height: 200px;
+  background-color: #FCFFC0;
+}
+
+.sidebar
+{
+  top: 65px;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: #F08080;
+  display: inline-block;
+}
+
+.contents{
+  height: 100%;
+  width: 80%;
+  background-color: #E8E5FF;
+  float:right;
+}
+
+.ranking
+{
+  height: 50%;
+  background-color: #f5dfb3;
+}
+
+.new-item
+{
+  height: 50%;
+  background-color: #b3bef5;
+}
+
+.test
+{
+  height: 500px;
+  background-color: #f0f0f0;
+}
+
+.thumbnail__figure
+{
+
+}

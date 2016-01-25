@@ -1,4 +1,5 @@
-class ReviewsController < ApplicationController
+class ReviewsController < RankingController
+  before_action :authenticate_user!, only: :new
 
   def new
     @product = Product.find(params[:product_id])
@@ -7,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     Review.create(create_params)
-    redirect_to controller: :products, acion: :indexß
+    redirect_to controller: :products, acion: :index
   end
 
   private
