@@ -22,7 +22,7 @@ class Scraping
     next_url = category
 
 num = 0
-    while num < 15 do
+    while num < 19 do
       cate_page = agent.get(next_url)
       elements = cate_page.search('p.figure a')
       elements.each do |ele|
