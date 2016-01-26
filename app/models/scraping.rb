@@ -22,7 +22,7 @@ class Scraping
     next_url = category
 
 num = 0
-    while num < 23 do
+    while num < 24 do
       cate_page = agent.get(next_url)
       elements = cate_page.search('p.figure a')
       elements.each do |ele|
@@ -31,7 +31,7 @@ num = 0
 
       next_url = cate_page.at('.pagination li.next a').get_attribute('href') if cate_page.at('.pagination li.next a')
       num += 1
-      # break unless next_url
+      break unless next_url
     end
 
     links.each do |link|

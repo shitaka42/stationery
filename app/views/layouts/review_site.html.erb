@@ -28,18 +28,34 @@
   </head>
     <body>
     <div class ="header">
-      <div class="header-left">
-        <ul>stationery</ul>
-      </div>
-      <div class="header-right">
-        <ul>
-          <li class="entry_button">
-            <a href="products/search">検索</a></li>
-          <li class="entry_button">
-                <%= link_to 'サインアウト', "/users/sign_out", method: :delete %>
+        <div class="header-left" style="float: left">
+          <li class="logo" style="float: left">
+            <a href="/">stationery</a>
           </li>
-        </ul>
-      </div>
+        </div>
+        <div class="header-right">
+          <ul>
+            <li class="entry_button">
+              <a href="products/search">検索</a>
+            </li>
+          <% if user_signed_in? %>
+            <li class="entry_button" style="float: right">
+              <%= link_to 'サインアウト', destroy_user_session_path, method: :delete %>
+            </li>
+            <li class="entry_button" style="float: right">
+              <a href="/users/<%= current_user.id %>">マイページ</a>
+            </li>
+          <% else %>
+            <li class="login_button" style="float:right">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            </li>
+            <li class="new_user_button" style="float:right">
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </li>
+            </ul>"
+            <% end %>
+          </ul>
+        </div>
     </div>
 
     <div class="main">
