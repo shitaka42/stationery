@@ -4,8 +4,8 @@ html, body {
 
 .header
 {
-  height: 65px;
-  background-color: #DAFFE7;
+  height: 40px;
+  background-color: #FC6005;
 }
 
 .main
@@ -59,4 +59,35 @@ html, body {
 .thumbnail__figure
 {
 
+}
+
+.logo a
+{
+  color: #FFF8F0;
+  font-size: 30px;
+}
+
+.header-left
+{
+  width: 40%;
+  height: 100%;
+}
+
+.header-right
+{
+  width: 60%;
+  height: 100%;
+  font-size: 18px;
+}
+
+.header-right ul
+{
+  margin: 10px;
+  padding-right: 30px;
+}
+
+.header-right a
+{
+  color: #FFF8F0;
+  margin: 10px;
 }
