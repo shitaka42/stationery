@@ -1,33 +1,45 @@
   <div id="main_cnt_wrapper">
-    <div id="yjContentsBody">
-      <div class="yjContainer">
-        <span class="yjGuid"><a id="yjContentsStart" name="yjContentsStart"></a><img alt="ここから本文です" height="1" src="http://i.yimg.jp/yui/jp/tmpl/1.1.0/audionav.gif" width="1"></span>
-        <div id="yjMain">
+ 
           <article class="section">
             <div class="container">
-              <header class="header header--section">
-                <h2 class="text-middle">
-                  <i class="icon-movie color-gray-light"></i><%= @product.title %>
-                </h2>
-              </header>
-              <p style="text-align: center">
-                <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
-              </p>
+              <div class="show_container clear_fix">
+                <header class="header header--section">
+                  <h4 class="text-middle">
+                    <i class="product_title"></i><%= @product.title %>
+                  </h4>
+                </header>
+
+
+              
+              <div class="show_thumbnail">
+                <div class="col-xs-6 col-md-3">
+                  <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
+                </div>
+              </div>
+              <div class="show_info">
+                <ul class="product_info">
+                  <li class="detail"><%= @product.detail %></li>
+                  <li class="price"><%= @product.price %>円(税込)</li>
+                  <li class="maker"><%= @product.maker %></li>
+              </ul>
+              </div>
+
+            </div>
               <div style="text-align: right">
                 <a href = "<%= @product.id %>/reviews/new">この作品を投稿する</a>
               </div>
               <header class="header header--section">
-                <h2 class="text-middle">
+                <h4 class="text-middle">
                   <i class="icon-movie color-gray-light"></i>みんなのレビュー
-                </h2>
+                </h4>
               </header>
               <ul style ="padding: 0">
                 <% @product.reviews.each do |review| %>
                 <li style="border-bottom: dotted 1px">
                   <div class="thumnail__caption">
-                    <h3 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
+                    <h4 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
                       <span><i class="icon-rate-60 text-xxsmall opacity-60" title=""></i></span><%= review.user.nickname %><small 2014=""></small>
-                    </h3>
+                    </h4>
                     <p class="text-small">
                       <span class="rating-star"><i class="star-actived rate-[ここに評価を表示]0"></i></span>
                     </p>
@@ -40,5 +52,4 @@
               </ul>
             </div>
           </article>
-    </div>
-  <div id="yjSub">
+</div>

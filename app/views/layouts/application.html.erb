@@ -27,22 +27,24 @@
       <%= csrf_meta_tags %>
   </head>
     <body>
-   <div class ="header">
+      <div class ="header">
         <div class="header-left" style="float: left">
+        <ul style = "list-style:none;">
           <li class="logo" style="float: left">
             <a href="/">stationery</a>
           </li>
-        </div>
-        <div class="header-right">
           <ul>
-            <li class="entry_button">
+        </div>
+        <div class="header-right" style="float: left">
+          <ul style="list-style:none;">
+            <li class="search_button" style="float: right">
               <a href="products/search">検索</a>
             </li>
           <% if user_signed_in? %>
-            <li class="entry_button" style="float: right">
+            <li class="signed_out_button" style="float: right">
               <%= link_to 'サインアウト', destroy_user_session_path, method: :delete %>
             </li>
-            <li class="entry_button" style="float: right">
+            <li class="my_page_button" style="float: right">
               <a href="/users/<%= current_user.id %>">マイページ</a>
             </li>
           <% else %>
@@ -52,22 +54,153 @@
             <li class="new_user_button" style="float:right">
               <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
             </li>
-            </ul>"
+            </ul>
             <% end %>
           </ul>
         </div>
     </div>
 
-    <div class="main">
+    <div class="main clear_fix">
 
-      <div class="sidebar"></div>
+      <div class="sidebar">
+        <div class="category">
+            <%= image_tag "pen.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+              <a href="#">ボールペン</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">万年筆</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">シャープペンシル</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">マーカー・サインペン</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">鉛筆・鉛筆削り</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">消しゴム・修正液</a>
+              </li>
+            </ul>
+
+          <%= image_tag "note.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+              <a href="#">ノート・メモ</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">手帳・日記帳</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">カレンダー</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">システム手帳・リフィル</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">ブックカバー・製本用品</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">ファイル</a>
+              </li>
+            </ul>
+
+        <%= image_tag "mail.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+              <a href="#">レターセット・便箋</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">封筒・ハガキ</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">封蝋・エンポッサー</a>
+              </li>
+            </ul>
+
+        <%= image_tag "ruler.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+                <a href="#">はさみ・カッターナイフ</a>
+              </li>
+               <li style=list-style:none;>
+                <a href="#">定規・コンパス</a>
+              </li>
+               <li style=list-style:none;>
+                <a href="#">クリップ・ステープラー</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">のり</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">下敷き</a>
+              </li>
+            </ul>
+
+        <%= image_tag "fancy.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+                <a href="#">シール</a>
+              </li>
+               <li style=list-style:none;>
+                <a href="#">スタンプ</a>
+              </li>
+               <li style=list-style:none;>
+                <a href="#">カード・ポストカード</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">のし・色紙</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">ペーパーアイテム・ウェデシングアイテム</a>
+              </li>
+              <li style=list-style:none;>
+                <a href="#">アルバム・フォトフレーム</a>
+              </li>
+            </ul>
+
+        <%= image_tag "art.jpeg" %>
+            <ul class="category">
+              <li style=list-style:none;>
+              <a href="#">絵の具</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">画材</a>
+              </li>
+               <li style=list-style:none;>
+              <a href="#">製図用品</a>
+              </li>
+            </ul>
+
+        </div>
+      </div>
 
       <div class="contents">
-
         <%= yield %>
+      </div>
     </div>
-
+    <div class="footer">
+      <div class="f clear_fix">
+        <ul class="footer_info clear_fix">
+          <li class="footer_info" style=list-style:none;>
+            <a href="/">ホーム</a>
+          </li>
+          <li class="footer_info" style=list-style:none;>
+            <a href="#">FAQ</a>
+          </li>
+          <li class="footer_info" style=list-style:none;>
+            <a href="#">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer_message clear_fix">
+        <p class="footer_message">
+          Copyright (C) 2016 Stationery
+        </p>
+      </div>
     </div>
-    <div class="footer"></div>
     </body>
   </html>

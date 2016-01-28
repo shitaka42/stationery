@@ -2,7 +2,6 @@ class ProductsController < RankingController
 
   def index
     @products = Product.all.order('id ASC').limit(20)
-    render :layout => 'toppage'
   end
 
   def search

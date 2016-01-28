@@ -1583,11 +1583,9 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
+  margin: 0 auto;
+ }
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -5002,6 +5000,8 @@ a.badge:focus {
   }
 }
 .thumbnail {
+  width: 150px;
+  height: 150px;
   display: block;
   padding: 4px;
   margin-bottom: 20px;

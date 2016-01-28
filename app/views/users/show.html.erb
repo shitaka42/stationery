@@ -1,29 +1,32 @@
 <div class="user_page">
-  <header class="user_page-header">
+  <header class="user_page-header clear_fix">
     <div class="yjContainer">
-      <a href="">
+      <div class="user_info clear_fix">
         <div class="user_image"><%= image_tag current_user.avatar %></div>
-        <h2><%= current_user.nickname %><span>さんのマイページ</span></h2>
-      </a>
-    </div>
+          <h4><%= current_user.nickname %><span>さんのマイページ</span></h4>
+          <ul class= "user_score">
+            <li>レビュー数</li>
+          </ul>
+        </div>
+      </div>
+
   </header>
-  <div class="pt1em pb1em" id="contents">  <div id="main_cnt_wrapper">
-    <div id="yjContentsBody">
-      <div class="yjContainer">
+  <div class="user_all_reviews">
         <ul class="user_page-contents">
           <% current_user.reviews.each do |review| %>
-            <li style="background-image: url(<%= review.product.image_url %>)">
-              <div class="meta">
-                <header>
-                  <div class="title"><%= review.product.title %></div>
-                  <span class="star"><span class="rating-star"><i class="star-actived rate-<%= review.total_rate %>0"></i></span></span>
-                </header>
-                <div class="user_review"><%= review.review %></div>
-              </div>
+            <li class="user_review" style="list-style:none;">
+              <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <figure id="reviews-photo">
+                      <a href="/products/<%= review.product.id %>" class="thumbnail">
+                        <img src="<%= review.product.image_url %>" alt="">
+                        <figcaption><%= review.product.title %></figcaption>
+                          </a>
+                      </figure>
+                  </div>
+                </div>
             </li>
           <% end %>
         </ul>
-
-      </div>
     </div>
   </div>

@@ -1,36 +1,41 @@
-  <div id="main_cnt_wrapper">
+  <div id="main_cnt_wrapper"><!-- 
     <div id="yjContentsBody">
       <div class="yjContainer">
         <span class="yjGuid"><a id="yjContentsStart" name="yjContentsStart"></a><img alt="ここから本文です" height="1" src="http://i.yimg.jp/yui/jp/tmpl/1.1.0/audionav.gif" width="1"></span>
-        <div id="yjMain">
+        <div id="yMain"> -->
           <article class="section">
             <div class="container">
-              <header class="header header--section">
-                <h2 class="text-middle">
-                  <i class="icon-stationery color-gray-light"></i>新着
-                </h2>
-              </header>
+  
+              <div class="ranking">
+                <div class="contents-title">投稿ランキング</div>
 
-        <div class="new-item">
+                <%= render partial: "ranking" %>
+              </div>
 
 
-              <ul class="thumbnails thumbnail--movies row grid4 js-lazy-load-images js-my-check-stats" id="list-module">
-                <% @products.each do |product| %>
-                <li class="col">
-                  <a href="/products/<%= product.id %>"><div class="thumbnail__figure" style="background-image:url(<%= product.image_url %>); height: 150px; "></div>
-                  <div class="thumbnail__caption">
-                    <h3 class="text-xsmall text-overflow" title="<%= product.title %>">
-                    <%= product.title %>
-                    </h3>
-                  </a>
-                    <p class="text-small">
-                    </p>
+
+              <div class="new-item clear_fix">
+                <div class="contents-title">新着</div>
+                <ul class="new-item-products" id="list-module" style=list-style:none;>
+                  <% @products.each do |product| %>
+                    <li class="new-item-view">
+                      <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                          <figure id="product-photo">
+                          <a href="/products/<%= product.id %>" class="thumbnail">
+                            <img src="<%= product.image_url %>" alt="">
+                            <figcaption><%= product.title %></figcaption>
+                          </a>
+                        </figure>
+
+                    </div>
                   </div>
-                </li>
-                <% end %>
-              </ul>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-            </div>
+          </div>
           </article>
         </div>
         <div id="yjSub">

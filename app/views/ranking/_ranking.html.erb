@@ -1,0 +1,26 @@
+  <div class= ranking_template>
+    <ul class="listview listview--condensed text-small" style= "list-style:none;">
+      <% @ranking.each.with_index(1) do |product,i| %>
+        <div class="ranking-product">
+          <li data-product-id="<%= product.id %>">
+            <a href="/products/<%= product.id %>">
+              <div class="row">
+                <div class="col-xs-6 col-md-3">
+                  <a href="/products/<%= product.id %>" class="thumbnail">
+                    <img src="<%= product.image_url %>" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="info_box">
+              <p class="r"><%= i %></p>
+                <a href="/products/<%= product.id %>">
+                <p class="text-rankingtitle" ><%= product.title %></p>
+                </a>
+              </div>
+            </a>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+  
