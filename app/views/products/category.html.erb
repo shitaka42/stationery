@@ -1,0 +1,35 @@
+  <div id="main_cnt_wrapper"><!-- 
+    <div id="yjContentsBody">
+      <div class="yjContainer">
+        <span class="yjGuid"><a id="yjContentsStart" name="yjContentsStart"></a><img alt="ここから本文です" height="1" src="http://i.yimg.jp/yui/jp/tmpl/1.1.0/audionav.gif" width="1"></span>
+        <div id="yMain"> -->
+          <article class="section">
+            <div class="container">
+  
+
+
+              <div class="new-item clear_fix">
+                <div class="contents-title">かてごりー</div>
+                <ul class="new-item-products" id="list-module" style=list-style:none;>
+                  <% @products.each do |product| %>
+                    <li class="new-item-view">
+                      <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                          <figure id="product-photo">
+                          <a href="/products/<%= product.id %>" class="thumbnail">
+                            <img src="<%= product.image_url %>" alt="">
+                            <figcaption><%= product.title %></figcaption>
+                          </a>
+                        </figure>
+
+                    </div>
+                  </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </article>
+        </div>
+        <div id="yjSub">

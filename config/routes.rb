@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :reviews,only: [:new, :create]
     collection do
       get 'search'
+      get 'category'
     end
   end
 

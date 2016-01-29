@@ -38,7 +38,7 @@
         <div class="header-right" style="float: left">
           <ul style="list-style:none;">
             <li class="search_button" style="float: right">
-              <a href="products/search">検索</a>
+              <a href="/products/search">検索</a>
             </li>
           <% if user_signed_in? %>
             <li class="signed_out_button" style="float: right">
@@ -67,111 +67,112 @@
             <%= image_tag "pen.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-              <a href="#">ボールペン</a>
+                <%= link_to 'ボールペン', :controller=>"/products", :action => "category", value: "ボールペン" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">万年筆</a>
+                <%= link_to '万年筆', :controller=>"/products", :action => "category", value: "万年筆" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">シャープペンシル</a>
+                <%= link_to 'シャープペンシル', :controller=>"/products", :action => "category", value: "シャープペンシル" %>
+              </li>
+              <li style=list-style:none;>
+                <%= link_to 'マーカー・サインペン', :controller=>"/products", :action => "category", value: "マーカー・サインペン" %>
+              </li>
+              <li style=list-style:none;>
+                <%= link_to '鉛筆・鉛筆削り', :controller=>"/products", :action => "category", value: "鉛筆・鉛筆削り" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">マーカー・サインペン</a>
-              </li>
-               <li style=list-style:none;>
-              <a href="#">鉛筆・鉛筆削り</a>
-              </li>
-               <li style=list-style:none;>
-              <a href="#">消しゴム・修正液</a>
+                <%= link_to '', :controller=>"/products", :action => "category", value: "" %>
+
               </li>
             </ul>
 
           <%= image_tag "note.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-              <a href="#">ノート・メモ</a>
+                <%= link_to 'ノート・メモ', :controller=>"/products", :action => "category", value: "ノート・メモ" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">手帳・日記帳</a>
-              </li>
-               <li style=list-style:none;>
-              <a href="#">カレンダー</a>
-              </li>
-               <li style=list-style:none;>
-              <a href="#">システム手帳・リフィル</a>
+                <%= link_to '手帳・日記帳', :controller=>"/products", :action => "category", value: "手帳・日記帳" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">ブックカバー・製本用品</a>
+                <%= link_to 'カレンダー', :controller=>"/products", :action => "category", value: "カレンダー" %>
+              </li>
+               <li style=list-style:none;>
+                <%= link_to 'システム手帳・リフィル', :controller=>"/products", :action => "category", value: "システム手帳・リフィル" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">ファイル</a>
+                <%= link_to 'ブックカバー・製本用品', :controller=>"/products", :action => "category", value: "ブックカバー・製本用品" %>
+              </li>
+              <li style=list-style:none;>
+                <%= link_to 'ファイル', :controller=>"/products", :action => "category", value: "ファイル" %>
               </li>
             </ul>
 
         <%= image_tag "mail.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-              <a href="#">レターセット・便箋</a>
+                <%= link_to 'レターセット・便箋', :controller=>"/products", :action => "category", value: "レターセット・便箋" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">封筒・ハガキ</a>
+                <%= link_to '封筒・ハガキ', :controller=>"/products", :action => "category", value: "封筒・ハガキ" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">封蝋・エンポッサー</a>
+                <%= link_to '封蝋・エンポッサー', :controller=>"/products", :action => "category", value: "封蝋・エンポッサー" %>
               </li>
             </ul>
 
         <%= image_tag "ruler.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-                <a href="#">はさみ・カッターナイフ</a>
+                <%= link_to 'はさみ・カッターナイフ', :controller=>"/products", :action => "category", value: "はさみ・カッターナイフ" %>
               </li>
                <li style=list-style:none;>
-                <a href="#">定規・コンパス</a>
+                <%= link_to '定規・コンパス', :controller=>"/products", :action => "category", value: "定規・コンパス" %>
               </li>
                <li style=list-style:none;>
-                <a href="#">クリップ・ステープラー</a>
+                <%= link_to 'クリップ・ステープラー', :controller=>"/products", :action => "category", value: "クリップ・ステープラー" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">のり</a>
+                <%= link_to 'のり', :controller=>"/products", :action => "category", value: "のり" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">下敷き</a>
+                <%= link_to '下敷き', :controller=>"/products", :action => "category", value: "下敷き" %>
               </li>
             </ul>
 
         <%= image_tag "fancy.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-                <a href="#">シール</a>
+                <%= link_to 'シール', :controller=>"/products", :action => "category", value: "シール" %>
               </li>
                <li style=list-style:none;>
-                <a href="#">スタンプ</a>
+                <%= link_to 'スタンプ', :controller=>"/products", :action => "category", value: "スタンプ" %>
               </li>
                <li style=list-style:none;>
-                <a href="#">カード・ポストカード</a>
+                <%= link_to 'カード・ポストカード', :controller=>"/products", :action => "category", value: "カード・ポストカード" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">のし・色紙</a>
+                <%= link_to 'のし・色紙', :controller=>"/products", :action => "category", value: "のし・色紙" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">ペーパーアイテム・ウェデシングアイテム</a>
+                <%= link_to 'ペーパーアイテム・ウェデシングアイテム', :controller=>"/products", :action => "category", value: "ペーパーアイテム・ウェディングアイテム" %>
               </li>
               <li style=list-style:none;>
-                <a href="#">アルバム・フォトフレーム</a>
+                <%= link_to 'アルバム・フォトフレーム', :controller=>"/products", :action => "category", value: "アルバム・フォトフレーム" %>
               </li>
             </ul>
 
         <%= image_tag "art.jpeg" %>
             <ul class="category">
               <li style=list-style:none;>
-              <a href="#">絵の具</a>
+                <%= link_to '絵の具', :controller=>"/products", :action => "category", value: "絵の具" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">画材</a>
+                <%= link_to '画材', :controller=>"/products", :action => "category", value: "画材" %>
               </li>
                <li style=list-style:none;>
-              <a href="#">製図用品</a>
+                <%= link_to '製図用品', :controller=>"/products", :action => "category", value: "製図用品" %>
               </li>
             </ul>
 
