@@ -23,6 +23,62 @@
                   <li class="maker"><%= @product.maker %></li>
               </ul>
               </div>
+           <div class="genre_simple">
+                <% if current_user.genre_likes.find_by(product_id: @product) %>
+                シンプル
+                <% else %>
+                  <%= link_to 'simple', "/products/#{@product.id}/genre_likes/genre_like?genre_type=1", method: :post %>
+                <% end %>
+              </div> 
+           <div class="genre_basic">
+                <% if current_user.genre_likes.find_by(product_id: @product) %>
+                ベーシック
+                <% else %>
+                  <%= link_to 'basic', "/products/#{@product.id}/genre_likes/genre_like?genre_type=2", method: :post %>
+                <% end %>
+              </div>
+          <div class="genre_cute">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+                キュート
+            <% else %>
+              <%= link_to 'cute', "/products/#{@product.id}/genre_likes/genre_like?genre_type=3", method: :post %>
+            <% end %>
+          </div>
+          <div class="genre_deco">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+              デコ・スクラップ
+            <% else %>
+              <%= link_to 'deco', "/products/#{@product.id}/genre_likes/genre_like?genre_type=4", method: :post %>
+            <% end %>
+          </div>
+          <div class="genre_life">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+              ライフスタイル
+            <% else %>
+              <%= link_to 'lifestyle', "/products/#{@product.id}/genre_likes/genre_like?genre_type=5", method: :post %>
+          <% end %>
+          </div>
+          <div class="genre_highclass">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+              ハイクラス
+            <% else %>
+              <%= link_to 'highclass', "/products/#{@product.id}/genre_likes/genre_like?genre_type=6", method: :post %>
+          <% end %>
+          </div>
+          <div class="genre_fun">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+              おもしろ
+            <% else %>
+              <%= link_to 'おもしろ系', "/products/#{@product.id}/genre_likes/genre_like?genre_type=7", method: :post %>
+          <% end %>
+          </div>
+          <div class="useful">
+            <% if current_user.genre_likes.find_by(product_id: @product) %>
+              便利
+            <% else %>
+              <%= link_to 'useful', "/products/#{@product.id}/genre_likes/genre_like?genre_type=8", method: :post %>
+          <% end %>
+          </div> 
 
             </div>
               <div style="text-align: right">

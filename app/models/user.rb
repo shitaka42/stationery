@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reviews
+  has_many :genre_likes
   validates :nickname, presence: true
   has_attached_file :avatar,
                       styles: { medium: "300x300#", thumb: "100x100#" }
