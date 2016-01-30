@@ -33,7 +33,10 @@
           <li class="logo" style="float: left">
             <a href="/">stationery</a>
           </li>
-          <ul>
+          <li>
+          <p class="subtitle" style="float: left">文具・ステーショナリー レビューサイト</p>
+          </li>
+        <ul>
         </div>
         <div class="header-right" style="float: left">
           <ul style="list-style:none;">
@@ -63,7 +66,8 @@
     <div class="main clear_fix">
 
       <div class="sidebar">
-        <div class="category">
+        <div class="side_category">
+          <div class="category_contents">
             <%= image_tag "pen.png" %>
             <ul class="category">
               <li style=list-style:none;>
@@ -175,7 +179,7 @@
                 <%= link_to '製図用品', :controller=>"/products", :action => "category", value: "製図用品" %>
               </li>
             </ul>
-
+          </div>
         </div>
       </div>
 

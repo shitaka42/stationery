@@ -1,23 +1,51 @@
   <div class= ranking_template>
+    <div class="ranking_header clear_fix">
+      <div class="king_img">
+        <%= image_tag "ranking.png" %>
+        <h3 class="ranking_title">投稿ランキング</h3>
+      </div>
+    </div>
     <ul class="listview listview--condensed text-small" style= "list-style:none;">
       <% @ranking.each.with_index(1) do |product,i| %>
         <div class="ranking-product">
           <li data-product-id="<%= product.id %>">
-            <a href="/products/<%= product.id %>">
               <div class="row">
                 <div class="col-xs-6 col-md-3">
+                  <figure id="ranking-photo">
                   <a href="/products/<%= product.id %>" class="thumbnail">
                     <img src="<%= product.image_url %>" alt="">
+                    <figcaption><%= product.title %></figcaption>
                   </a>
+                  <div class="rate">
+                    <% if product.reviews.present? && product.reviews.average(:total_rate).round <= 2 %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_1.png" %>
+                      </div>
+                    <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 4 %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_2.png" %>
+                      </div>
+                    <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 6 %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_3.png" %>
+                      </div>
+                    <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 8 %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_4.png" %>
+                      </div>
+                    <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 10 %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_5.png" %>
+                      </div>
+                    <% else %>
+                      <div class="star_index">
+                        <%= image_tag "rate_stars_0.png" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </figure>
                 </div>
-              </div>
-              <div class="info_box">
-              <p class="r"><%= i %></p>
-                <a href="/products/<%= product.id %>">
-                <p class="text-rankingtitle" ><%= product.title %></p>
-                </a>
-              </div>
-            </a>
+            </div>
           </li>
         </div>
       <% end %>

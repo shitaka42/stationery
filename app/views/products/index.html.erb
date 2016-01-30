@@ -7,14 +7,18 @@
             <div class="container">
 
               <div class="ranking">
-                <div class="contents-title">投稿ランキング</div>
 
                 <%= render partial: "ranking" %>
               </div>
 
               <div class="new-item clear_fix">
-                <div class="contents-title">新着</div>
-                <ul class="new-item-products" id="list-module" style=list-style:none;>
+                <div class="new_item_header clear_fix">
+                  <div class="new_img">
+                    <%= image_tag "new.png" %>
+                    <h3 class="new_item_title">新着</h3>
+                  </div>
+                </div>
+                <ul class="new-item-products clear_fix" id="list-module" style=list-style:none;>
                   <% @products.each do |product| %>
                     <li class="new-item-view">
                       <div class="row">

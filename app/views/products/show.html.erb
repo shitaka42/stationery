@@ -128,25 +128,25 @@
               <% end %>
         </div> 
 
-         <div class="user_rate_show clear_fix">
+         <div class="use_rate_show clear_fix">
             <p>使いやすさ</p>
-              <% if @product.reviews.present? && @product.reviews.average(:user_rate).round <= 2 %>
+              <% if @product.reviews.present? && @product.reviews.average(:use_rate).round <= 2 %>
                 <div class="star">
                   <%= image_tag "rate_stars_1.png" %>
                 </div>
-              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 4 %>
+              <% elsif @product.reviews.present? && @product.reviews.average(:use_rate).round <= 4 %>
                 <div class="star">
                   <%= image_tag "rate_stars_2.png" %>
                 </div>
-              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 6 %>
+              <% elsif @product.reviews.present? && @product.reviews.average(:use_rate).round <= 6 %>
                 <div class="star">
                   <%= image_tag "rate_stars_3.png" %>
                 </div>
-              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 8 %>
+              <% elsif @product.reviews.present? && @product.reviews.average(:use_rate).round <= 8 %>
                 <div class="star">
                   <%= image_tag "rate_stars_4.png" %>
                 </div>
-              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 10 %>
+              <% elsif @product.reviews.present? && @product.reviews.average(:use_rate).round <= 10 %>
                 <div class="star">
                   <%= image_tag "rate_stars_5.png" %>
                 </div>

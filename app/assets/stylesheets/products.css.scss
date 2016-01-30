@@ -15,8 +15,7 @@ p
 
 .main
 {
-  /*height: 1200px;*/
-  background-color: #800000;
+  background-color: #D8E2DC;
 }
 
 .footer
@@ -30,18 +29,22 @@ p
 {
   top: 65px;
   left: 0;
-  /*height: 100%;*/
   width: 15%;
-  background-image:url("mokume.jpg");
   display: inline-block;
   float: left;
+}
+
+.side_category
+{
+  margin-top: 10px;
+  margin-left: 10px;
+  background-image:url("mokume.jpg");
   border-radius: 10px;
 }
 
 .contents{
-  /*height: 1200px;*/
   width: 85%;
-  background-color: #E8E5FF;
+  background-color: #D8E2DC;
   float: left;
 }
 
@@ -84,14 +87,27 @@ display: block;
   font-size: 30px;
 }
 
-.category
+.subtitle
 {
-  margin: 15px;
-  background-color: #FFF8F0;
-  opacity: 0.8;
+  margin-left: 10px;
+  margin-top: 15px;
+  color: #FFF8F0;
 }
 
-.category img
+.side_category
+{
+  padding: 10px;
+}
+
+.category_contents
+{
+  padding: 10px;
+  background-color: #FFF8F0;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.category_contents img
 {
   margin-top: 5px;
   float: left;
@@ -99,7 +115,7 @@ display: block;
   height: 25px;
 }
 
-ul.category
+ul.category_contents
 {
   margin: 5px;
   font-size: 13px;
@@ -150,26 +166,59 @@ li.footer_info a
 .container
 {
   margin: 10px;
-  /*heigth: 1200px;*/
 }
+
 .ranking
 {
+  width: 95%;
   height: 300px;
-  background-color: #9DD9D2;
+  background-color: #EEE5E9;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: #9DD9D2;
+  padding: 20px;
 }
+
+
+
+.ranking_header
+{
+  width: 200px;
+  height: 64px;
+}
+
+.king_img
+{
+  width: 300px;
+  display: block;
+  margin: 0;
+}
+
+.king_img img
+{
+  float: left;
+}
+
+h3.ranking_title
+{
+  color: #9DD9D2;
+  display: block;
+  float: left;
+}
+
 
 .ranking-product
 {
-  width: 250px;
-  height: 250px;
-}
-
-.ranking-product
-{
-  margin-top: 10px;
+  margin: 3px;
   width: 200px;
   height: 220px;
   float: left;
+}
+
+.ranking_photo figure
+{
+  width: 80px;
+  height: 80px;
 }
 
 .text-rankingtitle
@@ -178,6 +227,31 @@ li.footer_info a
   width: 190px;
   margin: 0 auto;
 }
+
+.new_item_header
+{
+  height: 64px;
+}
+
+.new_img
+{
+  width: 300px;
+  display: block;
+  margin: 0;
+}
+
+.new_img img
+{
+  float: left;
+}
+
+h3.new_item_title
+{
+  color: #F4D06F;
+  display: block;
+  float: left;
+}
+
 
 .new-item-view
 {
@@ -188,8 +262,13 @@ li.footer_info a
 
 .new-item
 {
-  background-color: #EEE5E9;
+  width: 95%;
   padding: 30px;
+  margin-top: 10px;
+  background-color: #EEE5E9;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: #F4D06F;
 }
 
 
@@ -249,7 +328,8 @@ figcaption{
   color: #FFF8F0;
 }
 
-figure:hover figcaption {
+figure:hover figcaption
+{
   opacity: 1;
 }
 
