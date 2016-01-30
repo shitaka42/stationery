@@ -182,6 +182,8 @@ li.footer_info a
 .new-item-view
 {
   float: left;
+  width: 250px;
+  height: 250px;
 }
 
 .new-item
@@ -191,10 +193,11 @@ li.footer_info a
 }
 
 
+
 /*写真に関して*/
 .thumbnail__figure
 {
- width: 150px;
+ width: 200px;
  height: 200px;
 }
 
@@ -206,6 +209,8 @@ li.footer_info a
 .row
 {
   margin: 0 auto;
+  width: 200px;
+  height: 200px;
 }
 
 .info_box
@@ -224,26 +229,15 @@ li.footer_info a
 figure {
   position: relative;
   overflow: hidden;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
-figcaption.title{
+
+
+figcaption{
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.6);
-  -webkit-transition: .3s;
-  transition: .3s;
-  opacity: 0;
-  color: #FFF8F0;
-}
-
-figcaption.yen{
-  bottom: 0;
   left: 0;
   z-index: 2;
   width: 100%;
@@ -259,6 +253,29 @@ figure:hover figcaption {
   opacity: 1;
 }
 
+.star
+{
+  width: 150px;
+}
+
+.star_index
+{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.star img
+{
+  width: 150px;
+  height: 30px;
+}
+
+.star_index img
+{
+  width: 150px;
+  height: 30px;
+}
 
 /*show*/
 .header--section 
@@ -325,6 +342,34 @@ figure:hover figcaption {
   height: 50px;
   width: 100px;
 }
+
+.total_rate_show
+{
+  display: inline-block;
+  margin-left: 30px;
+  left: 0px;
+  height: 50px;
+  width: 150px;
+}
+
+.user_rate_show
+{
+  display: inline-block;
+  margin-left: 30px;
+  height: 50px;
+  width: 150px;
+}
+
+.design_rate_show
+{
+  display: inline-block;
+  margin-left: 30px;
+  height: 50px;
+  width: 150px;
+}
+
+
+
 
 /*search*/
 

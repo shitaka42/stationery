@@ -1,107 +1,192 @@
   <div id="main_cnt_wrapper">
- 
-          <article class="section">
-            <div class="container">
-              <div class="show_container clear_fix">
-                <header class="header header--section">
-                  <h4 class="text-middle">
-                    <i class="product_title"></i><%= @product.title %>
-                  </h4>
-                </header>
+    <article class="section">
+      <div class="container">
+        
+        <div class="show_container clear_fix">
+          <header class="header header--section">
+            <h4 class="text-middle">
+              <i class="product_title"></i><%= @product.title %>
+            </h4>
+          </header>
 
 
-              
-              <div class="show_thumbnail">
-                <div class="col-xs-6 col-md-3">
-                  <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
+          <div class="show_thumbnail">
+            <div class="col-xs-6 col-md-3">
+              <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
+            </div>
+          </div>
+          <div class="show_info">
+            <ul class="product_info">
+              <li class="detail"><%= @product.detail %></li>
+              <li class="price"><%= @product.price %>円(税込)</li>
+              <li class="maker"><%= @product.maker %></li>
+            </ul>
+
+          <div class="tag clear_fix">
+            <ul class="tag_list">
+             <li class="genre" id="simple">
+                <% if current_user.genre_likes.find_by(product_id: @product) %>
+                  <div class="checked">シンプル</div>
+                <% else %>
+                  <button type="button" name="シンプル">
+                    <%= link_to 'simple', "/products/#{@product.id}/genre_likes/genre_like?genre_type=1", method: :post %>
+                  </button>
+                <% end %>
+              </li>
+             <li class="genre" id="basic">
+                <% if current_user.genre_likes.find_by(product_id: @product) %>
+                  <div class="checked">ベーシック</div>
+                <% else %>
+                  <button type="button" name="シンプル">
+                    <%= link_to 'basic', "/products/#{@product.id}/genre_likes/genre_like?genre_type=2", method: :post %>
+                  </button>
+                <% end %>
+              </li>
+            <li class="genre" id="cute">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">キュート</div>
+              <% else %>
+                <button type="button" name="キュート">
+                  <%= link_to 'cute', "/products/#{@product.id}/genre_likes/genre_like?genre_type=3", method: :post %>
+                </button>
+              <% end %>
+            </li>
+            <li class="genre" id="deco">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">デコ・スクラップ</div>
+              <% else %>
+                <button type="button" name="デコ・スクラップ">
+                <%= link_to 'deco', "/products/#{@product.id}/genre_likes/genre_like?genre_type=4", method: :post %>
+                </button>
+              <% end %>
+            </li>
+            <li class="genre" id="life">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">ライフスタイル</div>
+              <% else %>
+                <button type="button" name="デコ・スクラップ">
+                  <%= link_to 'lifestyle', "/products/#{@product.id}/genre_likes/genre_like?genre_type=5", method: :post %>
+                </button>
+            <% end %>
+            </li>
+            <li class="genre" id="highclass">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">ハイクラス</div>
+              <% else %>
+                <button type="button" name="ハイクラス">
+                  <%= link_to 'highclass', "/products/#{@product.id}/genre_likes/genre_like?genre_type=6", method: :post %>
+                </button>
+            <% end %>
+            </li>
+            <li class="genre" id="fun">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">おもしろ系</div>
+              <% else %>
+                <button type="button" name="おもしろ系">
+                <%= link_to 'おもしろ系', "/products/#{@product.id}/genre_likes/genre_like?genre_type=7", method: :post %>
+              </button>
+            <% end %>
+            </li>
+            <li class="genre" id="useful">
+              <% if current_user.genre_likes.find_by(product_id: @product) %>
+                <div class="checked">便利</div>
+              <% else %>
+                <button type="button" name="便利">
+                <%= link_to 'useful', "/products/#{@product.id}/genre_likes/genre_like?genre_type=8", method: :post %>
+              </button>
+            <% end %>
+            </li>
+          </ul>
+        </div>
+<!-- ここに星をだす -->
+         <div class="total_rate_show clear_fix">
+            <p>総合得点</p>
+              <% if @product.reviews.present? && @product.reviews.average(:total_rate).round <= 2 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_1.png" %>
                 </div>
-              </div>
-              <div class="show_info">
-                <ul class="product_info">
-                  <li class="detail"><%= @product.detail %></li>
-                  <li class="price"><%= @product.price %>円(税込)</li>
-                  <li class="maker"><%= @product.maker %></li>
-              </ul>
+              <% elsif @product.reviews.present? && @product.reviews.average(:total_rate).round <= 4 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_2.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:total_rate).round <= 6 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_3.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:total_rate).round <= 8 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_4.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:total_rate).round <= 10 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_5.png" %>
+                </div>
+              <% else %>
+                <div class="star">
+                  <%= image_tag "rate_stars_0.png" %>
+                </div>
+              <% end %>
+        </div> 
 
-        <div class="tag clear_fix">
-          <ul class="tag_list">
-           <li class="genre" id="simple">
-              <% if current_user.genre_likes.find_by(product_id: @product) %>
-                <div class="checked">シンプル</div>
+         <div class="user_rate_show clear_fix">
+            <p>使いやすさ</p>
+              <% if @product.reviews.present? && @product.reviews.average(:user_rate).round <= 2 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_1.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 4 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_2.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 6 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_3.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 8 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_4.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:user_rate).round <= 10 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_5.png" %>
+                </div>
               <% else %>
-                <button type="button" name="シンプル">
-                  <%= link_to 'simple', "/products/#{@product.id}/genre_likes/genre_like?genre_type=1", method: :post %>
-                </button>
+                <div class="star">
+                  <%= image_tag "rate_stars_0.png" %>
+                </div>
               <% end %>
-            </li>
-           <li class="genre" id="basic">
-              <% if current_user.genre_likes.find_by(product_id: @product) %>
-                <div class="checked">ベーシック</div>
+        </div> 
+
+         <div class="design_rate_show clear_fix">
+            <p>デザイン</p>
+              <% if @product.reviews.present? && @product.reviews.average(:design_rate).round <= 2 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_1.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:design_rate).round <= 4 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_2.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:design_rate).round <= 6 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_3.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:design_rate).round <= 8 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_4.png" %>
+                </div>
+              <% elsif @product.reviews.present? && @product.reviews.average(:design_rate).round <= 10 %>
+                <div class="star">
+                  <%= image_tag "rate_stars_5.png" %>
+                </div>
               <% else %>
-                <button type="button" name="シンプル">
-                  <%= link_to 'basic', "/products/#{@product.id}/genre_likes/genre_like?genre_type=2", method: :post %>
-                </button>
+                <div class="star">
+                  <%= image_tag "rate_stars_0.png" %>
+                </div>
               <% end %>
-            </li>
-          <li class="genre" id="cute">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">キュート</div>
-            <% else %>
-              <button type="button" name="キュート">
-                <%= link_to 'cute', "/products/#{@product.id}/genre_likes/genre_like?genre_type=3", method: :post %>
-              </button>
-            <% end %>
-          </li>
-          <li class="genre" id="deco">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">デコ・スクラップ</div>
-            <% else %>
-              <button type="button" name="デコ・スクラップ">
-              <%= link_to 'deco', "/products/#{@product.id}/genre_likes/genre_like?genre_type=4", method: :post %>
-              </button>
-            <% end %>
-          </li>
-          <li class="genre" id="life">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">ライフスタイル</div>
-            <% else %>
-              <button type="button" name="デコ・スクラップ">
-                <%= link_to 'lifestyle', "/products/#{@product.id}/genre_likes/genre_like?genre_type=5", method: :post %>
-              </button>
-          <% end %>
-          </li>
-          <li class="genre" id="highclass">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">ハイクラス</div>
-            <% else %>
-              <button type="button" name="ハイクラス">
-                <%= link_to 'highclass', "/products/#{@product.id}/genre_likes/genre_like?genre_type=6", method: :post %>
-              </button>
-          <% end %>
-          </li>
-          <li class="genre" id="fun">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">おもしろ系</div>
-            <% else %>
-              <button type="button" name="おもしろ系">
-              <%= link_to 'おもしろ系', "/products/#{@product.id}/genre_likes/genre_like?genre_type=7", method: :post %>
-            </button>
-          <% end %>
-          </li>
-          <li class="genre" id="useful">
-            <% if current_user.genre_likes.find_by(product_id: @product) %>
-              <div class="checked">便利</div>
-            <% else %>
-              <button type="button" name="便利">
-              <%= link_to 'useful', "/products/#{@product.id}/genre_likes/genre_like?genre_type=8", method: :post %>
-            </button>
-          <% end %>
-          </li>
-        </ul>
+        </div> 
       </div>
     </div>
-
-            </div>
               <div style="text-align: right">
                 <a href = "<%= @product.id %>/reviews/new">この作品を投稿する</a>
               </div>

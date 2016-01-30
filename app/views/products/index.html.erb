@@ -12,8 +12,6 @@
                 <%= render partial: "ranking" %>
               </div>
 
-
-
               <div class="new-item clear_fix">
                 <div class="contents-title">新着</div>
                 <ul class="new-item-products" id="list-module" style=list-style:none;>
@@ -26,10 +24,36 @@
                             <img src="<%= product.image_url %>" alt="">
                             <figcaption><%= product.title %></figcaption>
                           </a>
-                        </figure>
-
-                    </div>
-                  </div>
+                          <div class="rate">
+                            <% if product.reviews.present? && product.reviews.average(:total_rate).round <= 2 %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_1.png" %>
+                              </div>
+                            <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 4 %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_2.png" %>
+                              </div>
+                            <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 6 %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_3.png" %>
+                              </div>
+                            <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 8 %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_4.png" %>
+                              </div>
+                            <% elsif product.reviews.present? && product.reviews.average(:total_rate).round <= 10 %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_5.png" %>
+                              </div>
+                            <% else %>
+                              <div class="star_index">
+                                <%= image_tag "rate_stars_0.png" %>
+                              </div>
+                            <% end %>
+                          </div>
+                          </figure>
+                        </div>
+                      </div>
                     </li>
                   <% end %>
                 </ul>
@@ -38,4 +62,4 @@
           </div>
           </article>
         </div>
-        <div id="yjSub">
+      <div id="yjSub">

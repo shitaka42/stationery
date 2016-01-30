@@ -1,0 +1,24 @@
+  <div class= "rating_template">
+  <% if product.reviews.average(:total_rate).round <= 2 %>
+    <div class="star1">
+      <%= image_tag "star.png" %>
+    </div>
+  <% elsif @products.reviews.average(:total_rate).round <= 4 %>
+    <div class="star2">
+      <%= image_tag "star.png" %><%= image_tag "star.png" %>
+    </div>
+  <% elsif @products.reviews.average(:total_rate).round <= 6 %>
+    <div class="star3">
+      <%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %>
+    </div>
+  <% elsif @products.reviews.average(:total_rate).round <= 8 %>
+    <div class="star4">
+      <%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %>
+    </div>
+  <% elsif @products.reviews.average(:total_rate).round <= 10 %>
+    <div class="star5">
+      <%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %><%= image_tag "star.png" %>
+    </div>
+  <% end %>
+    <!-- <i class="star-actived rate-<%= product.reviews.average(:total_rate).round %>0"></i> -->
+  </div>

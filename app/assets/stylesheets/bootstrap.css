@@ -5000,8 +5000,8 @@ a.badge:focus {
   }
 }
 .thumbnail {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   display: block;
   padding: 4px;
   margin-bottom: 20px;
